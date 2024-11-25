@@ -28,7 +28,7 @@ def main():
                 email = str(input("Digite o seu email: "))
                 senha = str(input("Digite a sua senha: "))
 
-                usuario = Usuario(name=nome, email=email, password=senha)
+                usuario = Usuario(nome=nome, email=email, senha=senha)
                 session.add(usuario)
                 session.commit()
                 print()
@@ -38,7 +38,7 @@ def main():
                 usuario = session.query(Usuario).filter_by(email=email_usuario).first()
                 if usuario:
                     os.system("cls || clear")
-                    print(f"{usuario.name} - {usuario.email} - {usuario.password}")
+                    print(f"{usuario.nome} - {usuario.email} - {usuario.senha}")
                 else:
                     print("Usuário não encontrado!")
             case 3:
@@ -47,9 +47,9 @@ def main():
                 usuario = session.query(Usuario).filter_by(email=email_usuario).first()
                 if usuario:
                     os.system("cls || clear")
-                    usuario.name = str(input("Digite o seu nome: "))
+                    usuario.nome = str(input("Digite o seu nome: "))
                     usuario.email = str(input("Digite o seu email: "))
-                    usuario.password = str(input("Digite a sua senha: "))
+                    usuario.senha = str(input("Digite a sua senha: "))
                     session.commit()
                 else:
                     print("Usuário não encontrado!")
@@ -70,7 +70,7 @@ def main():
                 os.system("cls || clear")
                 listar_todos_usuarios = session.query(Usuario).all()
                 for usuario in listar_todos_usuarios:
-                    print(f"{usuario.name} - {usuario.email} - {usuario.password}")
+                    print(f"{usuario.nome} - {usuario.email} - {usuario.senha}")
             case 0:
                 break
 
